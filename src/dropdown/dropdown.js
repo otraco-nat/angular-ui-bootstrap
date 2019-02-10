@@ -275,6 +275,14 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
         scrollbarPadding,
         scrollbarWidth = 0;
 
+      if (self.dropdownMenu.hasClass('dropdown-menu-auto')) {
+        self.dropdownMenu.css({
+          display: isOpen ? 'block' : 'none',
+          right: 'auto'
+        });
+        pos = $position.positionElements($element, self.dropdownMenu, 'auto bottom-left', true);
+      }
+      
       css = {
         top: pos.top + 'px',
         display: isOpen ? 'block' : 'none'
